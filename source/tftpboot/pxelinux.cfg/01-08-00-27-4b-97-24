@@ -1,0 +1,20 @@
+include menus/layout.cfg
+
+MENU title              PXE SERVER - MR Labolatory - MR-100-VM
+
+#### Menu
+
+LABEL hardisk
+  MENU DEFAULT
+  MENU label ^Boot from local harddisk
+  KERNEL netboot/chain.c32
+  localboot 0
+
+LABEL install-centos-server-vm
+  MENU LABEL Install Centos Server 7.5 for vm [min 2048 MB RAM to install]
+  KERNEL netboot/centos-server/vmlinuz
+  APPEND initrd=netboot/centos-server/initrd.img inst.repo=http://172.21.0.254/centos-7.5 ks=http://172.21.0.254/kickstart/centos-server-vm.cfg xdriver=vesa nomodeset ---
+
+  Menu separator
+
+include menus/menu_for_admin.cfg
