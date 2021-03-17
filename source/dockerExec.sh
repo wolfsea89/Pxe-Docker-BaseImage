@@ -60,6 +60,8 @@ clean(){
   apt-get purge p7zip-full p7zip-rar cpio 
 }
 
+sed -i "s/<p>Version: .*<\/p>/<p>Version: $Version<\/p>/g" /tftpboot/www/index.html
+
 service nginx start
 
 download_ubuntu16_source

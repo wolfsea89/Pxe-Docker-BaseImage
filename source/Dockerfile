@@ -7,6 +7,7 @@ LABEL Author='Maciej Rachuna'
 LABEL Application='PXE Server'
 LABEL Version='${jenkins_include_version}'
 LABEL JenkinsJob='${jenkins_include_jenkinsJob}'
+ENV Version='${jenkins_include_version}'
 
 # update the username and password
 # ENV PXE_PASS='${jenkins_include_admin_password}'
