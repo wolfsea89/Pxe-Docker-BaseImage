@@ -60,6 +60,8 @@ clean(){
   apt-get purge p7zip-full p7zip-rar cpio 
 }
 
+sed -i "s/<p>Version: .*<\/p>/<p>Version: $Version<\/p>/g" /tftpboot/www/index.html
+
 service nginx start
 
 download_ubuntu16_source
@@ -67,8 +69,6 @@ download_ubuntu18_source
 download_ubuntu20_source
 create_proxmox6-3_source
 
-sed -i 's/<p>Status: .*<\/p>/<p>Status: Starting TFTP<\/p>/g' /tftpboot/www/index.html
+sed -i 's/<p>Status: .*<\/p>/<p>Status: Working<\/p>/g' /tftpboot/www/index.html
 
 in.tftpd -u root -L -vvv /tftpboot
-
-sed -i 's/<p>Status: .*<\/p>/<p>Status: Working<\/p>/g' /tftpboot/www/index.html
