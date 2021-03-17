@@ -1,12 +1,20 @@
 # Pxe-Docker-BaseImage
 
-Serwer PXE (ang. Preboot Execution Environment) umożliwia uruchomienie na komputerze systemu operacyjnego, mimo że nie jest on na nim zainstalowany. Komputer taki nie musi posiadać żadnych urządzeń mogących przechowywać system (takich jak dysk twardy, stacja dyskietek, napęd CDROM, dyski USB, czy inne).
+![PXE](docs/images/pxe.png)
+
+Serwer PXE (ang. Preboot Execution Environment) umożliwia uruchomienie na komputerze systemu operacyjnego, mimo że nie jest on na nim zainstalowany. 
 
 Na potrzeby projektu Serwer PXE posiada obrazy do zainstalowania systemów operacyjnych takich jak:
  - ProxMox 6.3
  - Ubuntu 16.04 LTS 
  - Ubuntu 18.04 LTS 
  - Ubuntu 20.04 LTS 
+
+Wymagania
+=========
+1. Możliwość ustawienie na serwerze DHCP usługi PXE
+2. Urząadzenie musi być wyposażone w bootwanie z sieci
+
 
 Strkutura w kontenerze
 =========
@@ -17,6 +25,7 @@ Proces uruchomienia kontenera
 3. Generowanie obrazów uruchomieniowych dla Proxmox w /tftpboot/kernel/proxmox
 4. Uruchomienie usługi TFTP
 
+![PXE](docs/images/pxe_installOs.png)
 
 Lista plików
 ```
