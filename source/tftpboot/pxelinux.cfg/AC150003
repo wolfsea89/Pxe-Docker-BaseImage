@@ -1,0 +1,20 @@
+include menus/layout.cfg
+
+MENU title              PXE SERVER - MR Labolatory - 172.21.0.3
+
+#### Menu
+
+LABEL hardisk
+  MENU DEFAULT
+  MENU label ^Boot from local harddisk
+  KERNEL netboot/chain.c32
+  localboot 0
+
+LABEL install-ubuntu-server-for-vm
+    MENU label Install Ubuntu Server 16.04 LTS for VM
+    KERNEL netboot/ubuntu-server/linux
+    APPEND initrd=netboot/ubuntu-server/initrd.gz ks=http://172.21.0.254/kickstart/ubuntu-server-vm.cfg quiet ---
+
+  Menu separator
+
+include menus/menu_for_admin.cfg

@@ -1,0 +1,13 @@
+include menus/layout.cfg
+
+MENU title              PXE SERVER
+
+#### Menu
+
+LABEL hardisk
+  MENU DEFAULT
+  MENU label ^Boot from local harddisk
+  KERNEL chain.c32
+  localboot 0
+
+include menus/install_systems.cfg
