@@ -13,13 +13,13 @@ LABEL JenkinsJob='${jenkins_include_jenkinsJob}'
 ENV PXE_PASS='password'
 
 ADD source/tftpboot/ /tftpboot/
-COPY source/etc/apache2/apache2.conf /etc/apache2/apache2.conf
-COPY source/etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000-default.conf
+# COPY source/etc/apache2/apache2.conf /etc/apache2/apache2.conf
+# COPY source/etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 COPY source/etc/default/tftpd-hpa /etc/default/tftpd-hpa
 COPY source/dockerExec.sh /
 
 RUN apt-get update && \
-    apt-get install -y tftpd-hpa pxelinux syslinux-common wget apache2 p7zip-full p7zip-rar cpio && \
+    apt-get install -y tftpd-hpa pxelinux syslinux-common wget nginx p7zip-full p7zip-rar cpio && \
     ### CREATE tftpboot
     mkdir -p -m 0755 /tftpboot && \
     cp /usr/lib/syslinux/modules/bios/*.c32 /tftpboot/ && \
