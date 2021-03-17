@@ -1,6 +1,8 @@
 # Pxe-Docker-BaseImage
 
 ![PXE](docs/images/pxe.png)
+![PXE](docs/images/pxe_installOs.png)
+![PXE](docs/images/www.png)
 
 Serwer PXE (ang. Preboot Execution Environment) umożliwia uruchomienie na komputerze systemu operacyjnego, mimo że nie jest on na nim zainstalowany. 
 
@@ -25,7 +27,6 @@ Proces uruchomienia kontenera
 3. Generowanie obrazów uruchomieniowych dla Proxmox w /tftpboot/kernel/proxmox
 4. Uruchomienie usługi TFTP
 
-![PXE](docs/images/pxe_installOs.png)
 
 Lista plików
 ```
