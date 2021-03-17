@@ -69,8 +69,6 @@ download_ubuntu18_source
 download_ubuntu20_source
 create_proxmox6-3_source
 
-sed -i 's/<p>Status: .*<\/p>/<p>Status: Starting TFTP<\/p>/g' /tftpboot/www/index.html
+sed -i 's/<p>Status: .*<\/p>/<p>Status: Working<\/p>/g' /tftpboot/www/index.html
 
 in.tftpd -u root -L -vvv /tftpboot
-
-sed -i 's/<p>Status: .*<\/p>/<p>Status: Working<\/p>/g' /tftpboot/www/index.html
