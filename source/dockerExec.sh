@@ -1,5 +1,4 @@
 #!/bin/bash
-
 download_ubuntu16_source(){
   echo "*** DOWNLOAD UBUNTU 16 ***"
   mkdir -p -m -755 /tftpboot/kernel/ubuntu-server/16.04/
@@ -55,12 +54,16 @@ clean(){
   apt-get purge p7zip-full p7zip-rar cpio 
 }
 
+service nginx start
+echo "<html>prepare PXE server </html>" > /tftpboot/www/index.html
 
 download_ubuntu16_source
 download_ubuntu18_source
 download_ubuntu20_source
 create_proxmox6-3_source
 
+echo "<html>starting PXE server </html>" > /tftpboot/www/index.html
 
 in.tftpd -u root -L -vvv /tftpboot
-#apachectl -D FOREGROUND
+
+echo "<html> PXE server </html>" > /tftpboot/www/index.html
