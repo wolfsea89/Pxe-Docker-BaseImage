@@ -8,6 +8,53 @@ Na potrzeby projektu Serwer PXE posiada obrazy do zainstalowania systemów opera
  - Ubuntu 18.04 LTS 
  - Ubuntu 20.04 LTS 
 
+# Strkutura w kontenerze
+
+Proces uruchomienia kontenera
+1. Uruchomienie uslugi nginx
+2. Generowanie obrazów uruchomieniowych dla Ubuntu
+3. Generowanie obrazów uruchomieniowych dla Proxmox
+4. Uruchomienie usługi TFTP
+
+
+Po uruchomieniu kontenera skrypt pobiera i generuje sobie pliki, które wkopiwuje do katalogu /tftpboot/kernel 
+
+Lista plików
+```
+/tftpboot/
+|-- boot-screens
+|   `-- background.png
+|-- kernel
+|   |-- proxmox
+|   |   `-- 6.3
+|   |       |-- initrd.img
+|   |       `-- linux26
+|   `-- ubuntu-server
+|       |-- 16.04
+|       |   |-- initrd.gz
+|       |   `-- linux
+|       |-- 18.04
+|       |   |-- initrd.gz
+|       |   `-- linux
+|       `-- 20.04
+|           |-- initrd.gz
+|           `-- linux
+|-- menus
+|   |-- install_systems.cfg
+|   `-- layout.cfg
+|-- pxelinux.cfg
+|   `-- default
+|-- www
+    |-- index.html
+    `-- kickstart
+        `-- ubuntu
+            |-- 16.04
+            |   `-- server.cfg
+            |-- 18.04
+            |   `-- server.cfg
+            `-- 20.04
+                `-- server.cfg
+```
 
 # Konfiguracja serwera DHCP na mikrotik
 ```
@@ -19,8 +66,12 @@ Na potrzeby projektu Serwer PXE posiada obrazy do zainstalowania systemów opera
     domain=rachuna.net gateway=10.1.0.1 \
     next-server=10.1.0.2 \
 ```
+# Uruchomienie usługi w dockerze
+```
+docker run -d --name pxe-server -p 80:80 -p 69:69/udp wolfsea89/pxe-server:1.0.0.X
+```
 
-Pxe docker
+
 
 
 
